@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:app_test_fiap/app/features/home/controller/home_cubit.dart';
-import 'package:app_test_fiap/app/features/home/model/product_model.dart';
-import 'package:app_test_fiap/app/features/home/view/widgets/use_dev_appbar_widget.dart';
-import 'package:app_test_fiap/app/features/home/view/widgets/footer_widget.dart';
-import 'package:app_test_fiap/app/features/home/view/widgets/disclaimer_widget.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:app_test_fiap/app/features/home/model/product_model.dart';
+import 'package:app_test_fiap/app/features/home/controller/home_cubit.dart';
+import 'package:app_test_fiap/app/features/home/view/widgets/use_dev_appbar_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -64,7 +62,7 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Colors.white,
       appBar: const UseDevAppBar(),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () => _navigateToCreateProduct(context, null),
+        onPressed: () => _navigateToCreateProduct(context, context.read<HomeCubit>()),
         backgroundColor: Colors.black,
         foregroundColor: Colors.white,
         icon: const Icon(Icons.add),
@@ -271,12 +269,6 @@ class _HomePageState extends State<HomePage> {
                   // Footer
                   const SliverToBoxAdapter(
                     child: SizedBox(height: 40),
-                  ),
-                  const SliverToBoxAdapter(
-                    child: FooterWidget(),
-                  ),
-                  const SliverToBoxAdapter(
-                    child: DisclaimerWidget(),
                   ),
                 ],
               ),

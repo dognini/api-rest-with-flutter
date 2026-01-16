@@ -1,9 +1,9 @@
+import 'package:go_router/go_router.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:app_test_fiap/app/features/home/view/pages/home_page.dart';
 import 'package:app_test_fiap/app/core/containers/injection_container.dart';
 import 'package:app_test_fiap/app/features/home/controller/home_cubit.dart';
-import 'package:app_test_fiap/app/features/home/view/pages/home_page.dart';
 import 'package:app_test_fiap/app/features/home/view/pages/product_form_page.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 
 // Instância global do cubit para compartilhar entre as páginas
 final _globalHomeCubit = dependency.get<HomeCubit>();
